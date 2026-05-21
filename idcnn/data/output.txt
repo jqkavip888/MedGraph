@@ -1,0 +1,7 @@
+甲 O
+状 O
+腺 O
+无 O
+肿 B-sym
+大 E-sym
+, O
