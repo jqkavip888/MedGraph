@@ -17,7 +17,7 @@ NER → RE → graph database(neo4j) → Q&A pipeline  → Flask API
    │
    ▼
 IDCNN+CRF（NER）
-   │  extract dis / sym / drug / food 4 labels from data source
+   │  extract disease / symptom / drug / food 4 labels from data source
    ▼
 BERT + CRF + MHS（RE）
    │  基于 DuIE 训练 trainning build on DuIE data source ，推理迁移至医疗文本 the inference has transferred to new health data
