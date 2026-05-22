@@ -1,5 +1,5 @@
 # AI Doctor is a robot dialog system what base on healthcare.
-*ai医生是一个基于医疗数据集的机器人对话系统，这只是个LLM作业而已，已经删除了数据集和模型*
+*ai医生是一个基于医疗数据集的机器人对话系统，这只是个LLM作业而已，已经删除了一部分数据集和模型*
 
 it is just a LLM engnieer homework/personal project  · Python · PyTorch · Neo4j · Flask
 
