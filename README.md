@@ -49,8 +49,8 @@ Flask API
 
 ### ① NER — 命名实体识别 Named Entity Recognition（IDCNN + CRF）
 
-抽取 `dis / sym / drug / food` 四类医疗实体，采用 BIEO 四标签格式。
-extract 4 kinds of label of `dis / sym / drug / food` from data source, using BIEO 4-labels format
+抽取 `disease / symptom / drug / food` 四类医疗实体，采用 BIEO 四标签格式。
+extract 4 kinds of label of `disease / symptom / drug / food` from data source, using BIEO 4-labels format
 
 - **IDCNN**：通过膨胀卷积扩大感受野提取上下文特征，输出发射矩阵
 - using dilated conv1d draw the features from context, outputing the emission metrix to CRF layer
@@ -109,8 +109,8 @@ construct 23,111 'symptom/disease/food/medical' nodes in neo4j by cypher, and 15
 **规则路径（Aho-Corasick）**
 rule path（Aho-Corasick）
 
-以 `ahocorasick` 将 `dis / sym / drug / food` 词典合并为多模式匹配树，实体命中速度 **~0.3 ms**，但对模糊语义无法覆盖。
-integrate the `dis / sym / drug / food` vocab into a whole vocab to mutil-catch tree, accelerate to catch to 0.3ms, but could not cover ambiguous semantic
+以 `ahocorasick` 将 `disease / symptom / drug / food` 词典合并为多模式匹配树，实体命中速度 **~0.3 ms**，但对模糊语义无法覆盖。
+integrate the `disease / symptom / drug / food` vocab into a whole vocab to mutil-catch tree, accelerate to catch to 0.3ms, but could not cover ambiguous semantic
 
 **ONNX 推理加速**
 inference acceleration by ONNX framework
