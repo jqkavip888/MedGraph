@@ -131,8 +131,8 @@ bottleneck shift after acceleration:
 | Neo4j query | 363–423 ms |
 | Llama generation | 3,005–3,071 ms |
 
-在 2 核无超线程服务器上，两条路径 QPS 分别为 **1.6**（规则路径）/ **0.33**（Llama 路径），整体 QPS 上限由 Llama 路径锁死。
-running on vmware server build on M1 8gb macbook, 2 QPS of paths: 1.6(rule path)/0.33(llama path)
+在 2 核无超线程服务器上，QPS上限 **0.33**（Llama），整体 QPS 上限由 Llama 生成问题导致。
+running on vmware server build on M1 8gb macbook, QPS upper to 0.33(llama generation as a result)
 
 > **结论**：单点加速后瓶颈转移，推理优化需系统级整体考量。
 > conclusion: inference acceleration optimization need thinking holistically system
