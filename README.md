@@ -1,7 +1,7 @@
 # AI Doctor is a robot dialog system what base on healthcare.
-*ai医生是一个基于医疗数据集的机器人对话系统，这只是个LLM作业而已，已经删除了一部分数据集和模型*
+*ai医生是一个基于医疗数据集的机器人对话系统，这只是个LLM作业而已，由于数据集和模型文件较大，已经删除了duie数据集和模型*
 
-it is just a LLM engnieer homework/personal project
+it is just a LLM engnieer homework/personal project, i have deleted train/test data and model because what is size problem
 
 Python · PyTorch · Neo4j · Llama(GPT2) · NER/RE · IDCNN/BiLstm/CRF/Multi-Head-Selection · ONNX · Flask
 
@@ -10,25 +10,41 @@ Python · PyTorch · Neo4j · Llama(GPT2) · NER/RE · IDCNN/BiLstm/CRF/Multi-He
 ## project overview
 项目概览
 
-NER → RE → graph database(neo4j) → Q&A pipeline  → Flask API
 
 ```
-原始文本 Raw text
-   │
-   ▼
-IDCNN+CRF（NER）
-   │  extract disease / symptom / drug / food 4 labels from data source
-   ▼
-BERT + CRF + MHS（RE）
-   │  基于 DuIE 训练 trainning build on DuIE data source ，推理迁移至医疗文本 the inference has transferred to new health data
-   ▼
-Neo4j graph database
-   │  23,111 nodes · 154,396 relationships
-   ▼
-Q&A Pipeline（rules / ONNX / Llama）
-   │
-   ▼
-Flask API
+离线部分 offline part:
+
+medical.json 结构化数据   construction of data
+        ↓
+build_medicalgraph.py
+        ↓
+graph_database(Neo4j)
+
+
+开源数据集   duIE train data
+    ↓
+BERT/BiLSTM encode 
+    ↓
+CRF头 → BIEO标签（NER） CRF head → BIEO labels（NER)
+    ↓
+NER结果 embedding 后拼接回编码器输出    NER output into embedding layer and couple with encoder to next layer(MHS) out
+    ↓
+MHS头 → 关系三元组（RE）   MHS head → SPO relationship extraction(RE)
+
+
+在线部分 online part:
+
+用户输入   user input
+    ↓
+AC自动机（实体预检）   Actree
+    ↓
+BERT 意图分类（ONNX）   intent classification by Bert(ONNX)
+    ↓
+Cypher 查询 Neo4j   query Neo4j
+    ↓
+GPT2(Llama) 兜底     default conversation module(GPT2, it is place by llama next version which module is better than GPT2)
+    ↓
+Flask API 返回   
 ```
 
 ---
@@ -147,12 +163,13 @@ default dialog module
 
 ---
 
-OK, stop here
 ## 快速开始
 
 ```bash
-# 安装依赖
+# 自行安装依赖，目前没有导出
 pip install -r requirements.txt
+
+# 自行安装本地模型 Bert/GPT2/llama
 
 # 启动 Flask API
 python app.py
