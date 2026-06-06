@@ -162,7 +162,8 @@ default dialog module
 | v2 | Llama 3.2-1B（Q4） | nutural conversation feeling |
 
 前期采用 GPT-2，效果不理想，不像个人； 换用 Llama 3.2-1B（Q4 量化）后回复质量明显改善，趋近正常对话语感。
-V1 GPT-2 — semantic chaos; V2 Llama 3.2-1B (Q4 quantized) — natural conversation quality 
+V1 GPT-2 — semantic chaos; V2 Llama 3.2-1B (Q4 quantized) — natural conversation quality
+
 ---
 
 ## 快速开始
