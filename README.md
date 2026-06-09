@@ -1,5 +1,5 @@
-# AI Doctor is a robot dialog system what base on healthcare.
-*ai医生是一个基于医疗数据集的机器人对话系统，这只是个LLM作业而已，由于数据集和模型文件较大，已经删除了duie数据集和模型*
+# MedGraph is a robot dialog system what base on healthcare.
+*MedGraph是一个基于医疗数据集的机器人对话系统，这只是个LLM作业而已，由于数据集和模型文件较大，已经删除了duie数据集和模型*
 
 it is just a LLM engnieer homework/personal project, i have deleted train/test data and model because what is size problem
 
@@ -36,7 +36,7 @@ MHS头 → 关系三元组（RE）   MHS head → SPO relationship extraction(RE
 
 用户输入   user input
     ↓
-AC自动机（实体预检）   Actree
+AC自动机（实体预检）   accelerate to search keywords by Actree
     ↓
 BERT 意图分类（ONNX）   intent classification by Bert(ONNX)
     ↓
